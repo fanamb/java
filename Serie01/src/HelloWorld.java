@@ -1,10 +1,11 @@
-import java.util.Arrays;
+import java.util.Scanner;
 
 public class HelloWorld {
 	public static void main(String args[]) {
-		String[] mots = new String[] { "hello", "world", "!" };
-		Arrays.stream(mots).forEach(mot -> {
-			System.out.print(mot + " ");
-		});
+//		Scanner sc = new Scanner(System.in);
+//		System.out.println("Entrez une valeur pour n");
+//		int n = sc.nextInt();
+		
+		System.out.println(2e3);
 	}
 }
