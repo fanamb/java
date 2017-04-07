@@ -107,13 +107,16 @@ public class Javanais {
             //Vérifie que ce soit la première lettre d'un mot et bien une voyelle
             if((lettre == 0 || phrase.toCharArray()[lettre - 1] == espace) && (voyelles.contains(phrase.toCharArray()[lettre]))){
                 phrase = ajoutAv(phrase, lettre, phrase.toCharArray().length);
+                lettre += 2;
             }
-            //TODO Boucle infini
             //Vérifie que c'est entre une consonne et une voyelle
-            if(consonnes.contains(phrase.toCharArray()[lettre]) && voyelles.contains(phrase.toCharArray()[lettre + 1])) {
-                phrase = ajoutAv(phrase, lettre, phrase.toCharArray().length);
-                 
-            }
+            if(lettre <  phrase.toCharArray().length - 1){
+	            if(consonnes.contains(phrase.toCharArray()[lettre]) && voyelles.contains(phrase.toCharArray()[lettre + 1])) {
+	                phrase = ajoutAv(phrase, lettre + 1, phrase.toCharArray().length);
+	                lettre += 2;
+	                 
+	            }
+	        }
              
         }
  
