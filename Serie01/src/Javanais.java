@@ -90,8 +90,25 @@ public class Javanais {
      * Permet de traduire le javanais en français
      */
     private static void javanaisToFrancais() {
-//      System.out.println("Tapez votre texte en javanais afin de le traduire en français");
-//      String phrase = sc.nextLine();
+      System.out.println("Tapez votre texte en javanais afin de le traduire en français");
+      String phrase = sc.nextLine();
+      phrase = phrase.toLowerCase();
+      
+      //Boucle permettant d'avoir chaques caractères de la phrase
+      for (int lettre = 0; lettre < phrase.toCharArray().length; lettre++) {
+    	  //Vérifie que ça concerne bien les caractères a et v
+    	  if(lettre <  phrase.toCharArray().length - 1 && phrase.toCharArray()[lettre] == 'a' && phrase.toCharArray()[lettre + 1] == 'v'){
+    		//Vérifie que lorsque c'est la première lettre, le troisième charactère est une voyelle
+			if(lettre == 0 && voyelles.contains(phrase.toCharArray()[lettre + 2])) {
+				phrase = phrase.substring(lettre + 2, phrase.toCharArray().length);
+			//Vérifie que les lettres av soit entre une consonne et une voyelle
+			} else if(lettre > 0 && consonnes.contains(phrase.toCharArray()[lettre - 1])  && voyelles.contains(phrase.toCharArray()[lettre + 2])) {
+				phrase = phrase.substring(0, lettre) + phrase.substring(lettre + 2, phrase.toCharArray().length);
+			}
+    	  }
+      }
+
+      System.out.println("La traduction est " + phrase);
     }
  
     /*
@@ -120,7 +137,7 @@ public class Javanais {
              
         }
  
-        System.out.println(phrase);
+        System.out.println("La traduction est " + phrase);
     }
  
     private static String ajoutAv(String phrase, int lettre, int taille) {
