@@ -98,11 +98,8 @@ public class Javanais {
       for (int lettre = 0; lettre < phrase.toCharArray().length; lettre++) {
     	  //Vérifie que ça concerne bien les caractères a et v
     	  if(lettre <  phrase.toCharArray().length - 1 && phrase.toCharArray()[lettre] == 'a' && phrase.toCharArray()[lettre + 1] == 'v'){
-    		//Vérifie que lorsque c'est la première lettre, le troisième charactère est une voyelle
-			if(lettre == 0 && voyelles.contains(phrase.toCharArray()[lettre + 2])) {
-				phrase = phrase.substring(lettre + 2, phrase.toCharArray().length);
 			//Vérifie que les lettres av soit entre une consonne et une voyelle
-			} else if(lettre > 0 && consonnes.contains(phrase.toCharArray()[lettre - 1])  && voyelles.contains(phrase.toCharArray()[lettre + 2])) {
+			if(lettre > 0 && consonnes.contains(phrase.toCharArray()[lettre - 1])  && voyelles.contains(phrase.toCharArray()[lettre + 2])) {
 				phrase = phrase.substring(0, lettre) + phrase.substring(lettre + 2, phrase.toCharArray().length);
 			}
     	  }
